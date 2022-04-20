@@ -2,6 +2,9 @@ package com.experian.assesmentbackend;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
@@ -9,13 +12,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
-import static org.mockito.ArgumentMatchers.anyMap;
-import static org.mockito.ArgumentMatchers.anyMapOf;
-import static org.mockito.ArgumentMatchers.anyObject;
+import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 import com.experian.assesmentbackend.dao.ScoreDAO;
@@ -24,15 +24,6 @@ import com.experian.assesmentbackend.model.ScoreDTO;
 import com.experian.assesmentbackend.model.Student;
 import com.experian.assesmentbackend.model.StudentDTO;
 import com.experian.assesmentbackend.repository.Repository;
-
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-
-
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-
 
 @SpringBootTest
 class AssesmentBackendApplicationTests extends AbstractTester {
@@ -98,7 +89,6 @@ class AssesmentBackendApplicationTests extends AbstractTester {
 		ArrayList<StudentDAO> studentDAOListSecond = new ArrayList<StudentDAO>();
 		studentDAOListSecond.add(getStudentDAOObject());
 		Mockito.when(repository.findStudentByName(any(), any())).thenReturn(studentDAOListFirst, studentDAOListSecond);
-		
 
 		String uri = "/student";
 

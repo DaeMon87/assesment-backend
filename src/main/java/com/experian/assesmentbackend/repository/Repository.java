@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Vector;
 
 import com.experian.assesmentbackend.dao.ScoreDAO;
 import com.experian.assesmentbackend.dao.ScoreRowMapper;
@@ -238,6 +237,7 @@ public class Repository {
 
                     Object tmpObject = new java.sql.Date(((java.util.Date)updateMap.get(updateKey)).getTime());
                     values.add(tmpObject);
+                    
                 } else {
 
                     values.add(updateMap.get(updateKey));

@@ -1,6 +1,7 @@
 package com.experian.assesmentbackend.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -101,27 +102,27 @@ public class StudentService {
             HashMap<String, Object> updateMap = new HashMap<String, Object>();
             // Check for updatable fields
 
-            if(studentDetails.getFirstName() != targetStudent.getFirstName()) {
+            if(!studentDetails.getFirstName().isEmpty() && studentDetails.getFirstName() != targetStudent.getFirstName()) {
 
                 updateMap.put("firstname", studentDetails.getFirstName());
             }
 
-            if(studentDetails.getLastName() != targetStudent.getLastName()) {
+            if(!studentDetails.getLastName().isEmpty() && studentDetails.getLastName() != targetStudent.getLastName()) {
 
                 updateMap.put("lastname", studentDetails.getLastName());
             }
 
-            if(studentDetails.getDateOfBirth() != targetStudent.getDateOfBirth()) {
+            if(!studentDetails.getDateOfBirth().equals(new Date(0)) && studentDetails.getDateOfBirth() != targetStudent.getDateOfBirth()) {
 
                 updateMap.put("dateofbirth", studentDetails.getDateOfBirth());
             }
 
-            if(studentDetails.getCellNumber() != targetStudent.getCellNumber()) {
+            if(!studentDetails.getCellNumber().isEmpty() && studentDetails.getCellNumber() != targetStudent.getCellNumber()) {
 
                 updateMap.put("cellnumber", studentDetails.getCellNumber());
             }
 
-            if(studentDetails.getEmailAddress() != targetStudent.getEmailAddress()) {
+            if(!studentDetails.getEmailAddress().isEmpty() && studentDetails.getEmailAddress() != targetStudent.getEmailAddress()) {
 
                 updateMap.put("emailaddress", studentDetails.getEmailAddress());
             }
@@ -133,11 +134,6 @@ public class StudentService {
             }
         }
         return null;
-    }
-
-    public static boolean updateCheck(StudentDTO studentDetails, StudentDTO savedStudent) {
-
-        return false;
     }
 
     public Student deleteStudent(int id) {

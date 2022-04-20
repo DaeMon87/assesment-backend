@@ -71,7 +71,7 @@ public class StudentController {
 		}
 
 		Student savedStudent = studentService.updateStudent(id, studentDetails);
-		if(savedStudent == null || savedStudent.getStudentNumber() == id && StudentService.updateCheck(studentDetails, new StudentDTO(savedStudent))) {
+		if(savedStudent == null || savedStudent.getStudentNumber() != id ) {
 
 			throw new ActionFailedException("Failed to update student");
 		} 

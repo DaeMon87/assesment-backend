@@ -27,6 +27,12 @@ public class StudentController {
 	@Autowired
 	StudentService studentService;
 
+	@GetMapping("/")
+	public String AliveCheck() {
+
+        return "Alive";
+	}
+
 	@GetMapping("/student")
 	public List<StudentDTO> GetStudentList() {
 

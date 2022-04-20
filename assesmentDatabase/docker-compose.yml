@@ -4,6 +4,10 @@ services:
   db:
     image: postgres
     restart: always
+    networks:
+      default:
+        aliases:
+          - database
     environment:
       POSTGRES_USER: assesuser
       POSTGRES_PASSWORD: assesuser
@@ -12,3 +16,4 @@ services:
        - ./data:/var/lib/postgresql/data
     ports:
        - "5432:5432"
+
